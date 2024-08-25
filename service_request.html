@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Haven Resort - Service Request</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            text-align: center;
+            color: #008080;
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #008080;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #006666;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; 
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Azure Haven Resort - Service Request</h2>
+
+<form action="php/add_service.php" method="post">
+    <fieldset>
+        <legend>Guest Information</legend>
+        
+        <label for="guestname" class="tooltip">Guest Name:
+            <span class="tooltiptext">Enter the full name of the guest.</span>
+        </label>
+        <input type="text" id="guestname" name="guestname" required placeholder="Enter guest's full name">
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Service Details</legend>
+
+        <label for="service" class="tooltip">Select Service:
+            <span class="tooltiptext">Choose a service you wish to request.</span>
+        </label>
+        <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="laundry">Laundry</option>   
+            <option value="roomservice">Room Service</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="spa">Spa Treatment</option>
+            <option value="airportshuttle">Airport Shuttle</option>
+            <option value="golfcart">Golf Cart Transport</option>
+        </select>
+
+        <label for="quantity" class="tooltip">Quantity:
+            <span class="tooltiptext">Specify the number of services requested.</span>
+        </label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" max="10" required>
+    </fieldset>
+
+    <button type="submit">Submit Service Request</button>
+</form>
+
+</body>
+</html>

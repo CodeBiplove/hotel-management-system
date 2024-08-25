@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Haven Resort - Room Booking</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #34495e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #2980b9;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #21618c;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 250px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -125px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Azure Haven Resort - Room Booking</h2>
+
+<form action="php/add_reservation.php" method="post">
+    <fieldset>
+        <legend>Guest Information</legend>
+
+        <label for="name" class="tooltip">Name
+            <span class="tooltiptext">Please enter your full legal name.</span>
+        </label>
+        <input type="text" id="name" name="name" required placeholder="Enter full name">
+
+        <label for="address" class="tooltip">Address
+            <span class="tooltiptext">Please provide your complete address.</span>
+        </label>
+        <input type="text" id="address" name="address" required placeholder="Enter your address">
+
+        <label for="contact" class="tooltip">Contact Number
+            <span class="tooltiptext">Provide a valid phone number.</span>
+        </label>
+        <input type="text" id="contact" name="contact" pattern="\d{10}" required placeholder="Enter 10-digit phone number">
+
+        <label for="Verification" class="tooltip">Verification (National ID)
+            <span class="tooltiptext">Enter a valid National ID number for verification.</span>
+        </label>
+        <input type="text" id="Verification" name="Verification" required placeholder="National ID Number">
+    </fieldset>
+
+    <fieldset>
+        <legend>Booking Details</legend>
+
+        <label for="duration" class="tooltip">Duration of Stay (days)
+            <span class="tooltiptext">Specify how many days you plan to stay.</span>
+        </label>
+        <input type="number" id="duration" name="duration" min="1" required placeholder="Number of days">
+
+        <label for="checkin" class="tooltip">Check-In Date
+            <span class="tooltiptext">Select your check-in date.</span>
+        </label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout" class="tooltip">Check-Out Date
+            <span class="tooltiptext">Select your check-out date.</span>
+        </label>
+        <input type="date" id="checkout" name="checkout" required>
+    </fieldset>
+
+    <button type="submit">Book Room</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Management - Azure Haven Resort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-left: 5px;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #1e8449;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 15px;
+            background-color: #2980b9;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #21618c;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Room Management - Azure Haven Resort</h2>
+
+<form action="php/manager_interface.php" method="post">
+    <fieldset>
+        <legend>Room Details</legend>
+
+        <label for="roomnumber">Room Number:</label>
+        <input type="text" id="roomnumber" name="roomnumber" required placeholder="Enter room number">
+
+        <label for="roomtype">Room Type:</label>
+        <select id="roomtype" name="roomtype" required>
+            <option value="" disabled selected>Select room type</option>
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="suite">Suite</option>
+            <option value="custom">Custom</option>
+        </select>
+
+        <label for="availability">Available?</label>
+        <input type="checkbox" id="availability" name="availability">
+    </fieldset>
+
+    <button type="submit">Add Room</button>
+</form>
+
+<h2>Reports</h2>
+
+<a href="php/view_reports.php" class="btn">View Monthly Reports</a>
+
+</body>
+</html>

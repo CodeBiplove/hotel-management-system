@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Haven Resort - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            background-color: #eef2f3;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 15px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+        }
+
+        input[type="password"] {
+            letter-spacing: 0.2em;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .form-error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Login to Azure Haven Resort</h2>
+
+<form action="php/login.php" method="post" onsubmit="return validateForm()">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required placeholder="Enter your username">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required placeholder="Enter your password">
+
+    <span id="error-message" class="form-error"></span>
+
+    <button type="submit">Login</button>
+
+    <a href="#" class="forgot-password">Forgot Password?</a>
+</form>
+
+<script>
+    function validateForm() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        if (username.length < 5) {
+            errorMessage.textContent = "Username must be at least 5 characters.";
+            return false;
+        }
+
+        if (password.length < 8) {
+            errorMessage.textContent = "Password must be at least 8 characters.";
+            return false;
+        }
+
+        errorMessage.textContent = "";  // Clear any previous error message
+        return true;  // Allow form submission
+    }
+</script>
+
+</body>
+</html>
